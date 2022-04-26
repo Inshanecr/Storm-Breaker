@@ -1,15 +1,20 @@
-#LIBRARIES
+ #LIBRARIES
+from os import system
 try: 
  from time import sleep
  from requests import get,post
- import os
  from colorama import Fore
  from ipapi import location
 except ImportError:
-    exit("PLEASE INSTSLLING LIBRARIES\npip install time\npip install requests\npip install colorama\npip install ipapi")
+   print(Fore.RED+"INSTSLLING LIBRARIES\n")
+   system("clear")
+   system("pip install requests ")
+   system("pip install colorama")
+   system("pip install ipapi")
+   system("pip install time")
 
 #CHECK IP
-os.system("clear")
+system("clear")
 print(Fore.YELLOW+"\nCheck Your ip")
 try: 
  ip = get("https://api.ipify.org").text
@@ -22,22 +27,19 @@ except Exception as e:
    exit(Fore.RED+"I CAN'T GETTING YOUR IP PLEASE RUN AGAIN")
 
 #LOADING 
-os.system("clear")
-print("loading[■■■30%]\n")
-sleep(2)
-os.system("clear")
+system("clear")
 print("loading[■■■■40%]\n")
-sleep(2)
-os.system("clear")
+sleep(1)
+system("clear")
 print("loading[■■■■■■60%]\n")
-sleep(2)
-os.system("clear")
+sleep(1)
+system("clear")
 print("loading[■■■■■■■80%]\n")
-sleep(2)
-os.system("clear")
+sleep(1)
+system("clear")
 print("loading[■■■■■■■■■■100%]\n")
-sleep(2)
-os.system("clear")
+sleep(1)
+system("clear")
 sleep(0.01)
 
 #banner
@@ -147,8 +149,5 @@ while True:
       continue
    except TypeError:
        continue 
-   except KeyboardInterrupt:
-      exit(Fore.CYAN+"\nGoodBye")
-   except ValueError:
-      exit("Wrong Number")          
-   
+   except (KeyboardInterrupt,ValueError):
+      exit(Fore.CYAN+"\n GoodBye")
