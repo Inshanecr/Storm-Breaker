@@ -6,7 +6,7 @@ try:
  from colorama import Fore
  from ipapi import location
 except ImportError:
-   print(Fore.RED+"INSTSLLING LIBRARIES\n")
+   print("INSTSLLING LIBRARIES\n")
    system("clear")
    system("pip install requests ")
    system("pip install colorama")
