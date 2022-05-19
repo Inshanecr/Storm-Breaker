@@ -67,6 +67,6 @@ def check_update():
     with open("Settings.json", "r") as jsonFile:
 
         data = json.load(jsonFile)
-        #if data['version'] < http_json['version']:
-            #exit("Please Update Tool")
+        if data['version'] < http_json['version']:
+            exit("Please Update Tool")
         
