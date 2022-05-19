@@ -13,7 +13,7 @@ def dependency():
 
     
     if os.geteuid() != 0:
-        print("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
+        exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
 
     check_php = getoutput("php -v")
     if "not found" in check_php:
@@ -21,7 +21,7 @@ def dependency():
 
 
 
-    result = getoutput("screenfetch")
+    result = getoutput("neofetch")
     if "not found" in result:
         exit("please install neofetch \n command > sudo apt install neofetch")
 
