@@ -5,7 +5,7 @@ from subprocess import Popen
 def banner():
     os.system("clear")
     print("")
-    Popen('screenfetch')
+    Popen('neofetch')
     time.sleep(2)
 
 def show_menu():
