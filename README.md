@@ -67,14 +67,4 @@ $ sudo python3 st.py
 ```
 
 
-<h3 align="center">
-:: Workflow ::
-</h3>
-<p align="center">
-<img src="Work1.png"/>
-  
-<br>
-<img src="Work2.png"/>
 
- 
-</p>
