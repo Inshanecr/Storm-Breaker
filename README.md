@@ -60,7 +60,7 @@
 
 ```bash
 $ git clone https://github.com/inshanecr/StormBreaker
-$ cd Storm-Breaker
+$ cd StormBreaker
 $ sudo bash install.sh
 $ sudo python3 -m pip install -r requirements.txt
 $ sudo python3 st.py
