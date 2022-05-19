@@ -12,8 +12,8 @@ def dependency():
         pass
 
     
-    #if os.geteuid() != 0:
-        #exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
+    if os.geteuid() != 0:
+        exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
 
     check_php = getoutput("php -v")
     if "not found" in check_php:
@@ -67,6 +67,6 @@ def check_update():
     with open("Settings.json", "r") as jsonFile:
 
         data = json.load(jsonFile)
-        if data['version'] < http_json['version']:
-            exit("Please Update Tool")
+        #if data['version'] < http_json['version']:
+            #exit("Please Update Tool")
         
