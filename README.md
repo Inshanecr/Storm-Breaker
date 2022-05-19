@@ -48,7 +48,6 @@
 - `git`
 - `ngrok`
 
-![demo](https://sabzlearn.ir)
 
 ### Operating Systems Tested
 
