@@ -2,7 +2,6 @@ import platform,json
 from subprocess import getoutput
 import os,requests
 from module import control
-from colorama import Fore
 def dependency():
 
     if platform.uname()[0] == "Windows":
