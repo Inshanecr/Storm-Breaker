@@ -2,23 +2,25 @@ import platform,json
 from subprocess import getoutput
 import os,requests
 from module import control
-
+from colorama import Fore
 def dependency():
 
     if platform.uname()[0] == "Windows":
         print("\n This Tool Only Works On Linux Distributions\n")
-        exit()
+        
     else:
         pass
-
-    
+   
+    red='\033[31m'
+    yellow ='\033[33m'
+    re ='\033[0m'
     if os.geteuid() != 0:
-        exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
-
+        exit(red+"You need to have root privileges to run this script !!!\n\n"+re+"Please try again, this time using"+yellow+" 'sudo python3 st.py' ")
+    
     check_php = getoutput("php -v")
     if "not found" in check_php:
         exit("please install php \n command > sudo apt install php")
-
+    
 
 
     result = getoutput("neofetch")
@@ -33,13 +35,18 @@ def dependency():
     except ImportError:
         exit("please install library \n command > python3 -m pip install -r requirements.txt")
 
-
-
+    try: #check Internet Connection 
+     requests.get("https://google.com")
+    except:
+       os.system("clear")
+       exit(Fore.RED+"\n[ - ] please Check Your internet Connection\n")
+ 
+      
     http = requests.get("https://api.ipify.org/").text
-
+    
     location = json.loads(requests.get(f"https://geolocation-db.com/json/{http}&position=true").text)['country_code']
-    #if location == "IR":
-        #exit(Fore.RED+"\n[-]"+Fore.WHITE+" Please Enable VPN"+Style.RESET_ALL)
+    if location == "IR":
+       exit(Fore.RED+"\n[-]"+Fore.WHITE+" Please Enable VPN"+Style.RESET_ALL)
 
 
 
