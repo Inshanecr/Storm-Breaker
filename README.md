@@ -20,7 +20,7 @@
   </a>
 </p>
 
-![demo](https://dl.sabzlearn.ir/demo/storm/cu-demo.png)
+![demo](https://github.com/Inshanecr/StormBreaker/blob/main/IMG_20220521_205527_797.jpg)
 
 ### Features:
 
