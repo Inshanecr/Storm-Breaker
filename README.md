@@ -66,5 +66,4 @@ $ sudo python3 st.py
 ```
 
 ## My Telegram
-[![GNU GPLv3 Image](https://telegram.org/img/t_logo.png)]
-(http://t.me/LooQaat)
+[![GNU GPLv3 Image](https://telegram.org/img/t_logo.png)](http://t.me/LooQaat)
