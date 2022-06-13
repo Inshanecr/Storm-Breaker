@@ -42,11 +42,12 @@
 ### Dependencies
 
 **`Storm Breaker`** requires following programs to run properly - 
+- `python3`
+- `JavaScript`
 - `php`
 - `neofetch`
-- `python3`
 - `git`
-- `ngrok`
+- `ssh`
 
 
 ### Operating Systems Tested
@@ -58,9 +59,8 @@
 
 
 ```bash
-$ git clone https://github.com/inshanecr/StormBreaker
-$ cd StormBreaker
-$ sudo bash install.sh
+$ git clone https://github.com/Inshanecr/Storm-Breaker
+$ cd Storm-Breaker
 $ sudo python3 -m pip install -r requirements.txt
 $ sudo python3 st.py
 ```
