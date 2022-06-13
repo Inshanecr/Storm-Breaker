@@ -1,78 +1,51 @@
-import platform,json
 from subprocess import getoutput
-import os,requests
-from module import control
-def dependency():
+from module.colors import c
+import platform
+import requests
+import os
+import json
 
-    if platform.uname()[0] == "Windows":
-        print("\n This Tool Only Works On Linux Distributions\n")
-        
-    else:
-        pass
-   
-    red='\033[31m'
-    yellow ='\033[33m'
-    re ='\033[0m'
-    if os.geteuid() != 0:
-        exit(red+"You need to have root privileges to run this script !!!\n\n"+re+"Please try again, this time using"+yellow+" 'sudo python3 st.py' ")
+
+def dependency():
+    clear = os.system("clear")
+    if platform.uname()[0] == "Windows" or getoutput("uname -o") == "Android":
+        clear
+        exit(c.red+"\n This Tool Only Works On Linux Distributions\n")
+    
+    if os.geteuid() == 0:
+        clear
+        exit(c.red+"You need to have root privileges to run this script !!!\n\n"+c.re+"Please try again, this time using"+c.yellow+" 'sudo python3 st.py' ")
     
     check_php = getoutput("php -v")
     if "not found" in check_php:
-        exit("please install php \n command > sudo apt install php")
-    
+        clear
+        exit(c.red+"please install php \n command > sudo apt install php")    
 
-
-    result = getoutput("neofetch")
-    if "not found" in result:
-        exit("please install neofetch \n command > sudo apt install neofetch")
-
+    check_neofetch = getoutput("neofetch")
+    if "not found" in check_neofetch:
+        clear
+        exit(c.red+"please install neofetch \n command > sudo apt install neofetch")
+        
+    check_ssh= getoutput("ssh")
+    if "not found" in check_ssh:
+        clear
+        exit(c.red+"please install openssl \n command > sudo apt install openssl")
 
     try:
-        from colorama import Fore,Style
-        import requests,ipapi,psutil
-
+        import requests,psutil
     except ImportError:
-        exit("please install library \n command > python3 -m pip install -r requirements.txt")
+        exit(c.red+"please install library \n command > python3 -m pip install -r requirements.txt")
 
-    try: #check Internet Connection 
+    try: 
      requests.get("https://google.com")
     except:
-       os.system("clear")
-       exit(Fore.RED+"\n[ - ] please Check Your internet Connection\n")
+       clear
+       exit(c.red+"\n[ - ] please Check Your internet Connection\n")
  
       
-    http = requests.get("https://api.ipify.org/").text
-    
+    http = requests.get("https://api.ipify.org/").text   
     location = json.loads(requests.get(f"https://geolocation-db.com/json/{http}&position=true").text)['country_code']
     if location == "IR":
-       exit(Fore.RED+"\n[-]"+Fore.WHITE+" Please Enable VPN"+Style.RESET_ALL)
+      clear
+      exit(c.red+"\n[-]"+c.green+" Please Enable VPN"+c.re)
 
-
-
-def check_started():
-    with open("Settings.json", "r") as jsonFile:
-        data = json.load(jsonFile)
-
-    if data["is_start"] == False:
-        data["is_start"] = True
-        with open("Settings.json", "w") as jsonFile:
-            json.dump(data, jsonFile)
-
-
-
-    elif data["is_start"] == True:
-        control.kill_php_proc()
-        
-
-
-def check_update():
-    http = requests.get("https://raw.githubusercontent.com/ultrasecurity/Storm-Breaker/main/Settings.json").text
-    
-    http_json = json.loads(http)
-
-    with open("Settings.json", "r") as jsonFile:
-
-        data = json.load(jsonFile)
-        if data['version'] < http_json['version']:
-            exit("Please Update Tool")
-        
