@@ -32,11 +32,11 @@
 
 
 ### Update Log:
-- Second(latest) Update in  May 18, 2022
+- Second(latest) Update in  June 13, 2022
 - The overall structure of the tool is programmed from scratch
 - Previous versions bugs fixed
-- Auto Download ngrok 
-> We have deleted ngrok in the new version of storm breaker and entrusted the user with run and share the localhost. So please note that storm breaker runs a localhost for you and you have to start the ngrok on your intended port yourself.
+- Use random Port for localhost
+> We have deleted ngrok in the new version of storm breaker and entrusted the user with run and share the localhost. So please note that storm breaker runs a localhost for you and you have to start the ssh on your intended port yourself.
 
 
 ### Dependencies
