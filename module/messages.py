@@ -1,10 +1,11 @@
+from module.colors import c
 def show_message(msg):
     if msg == "loc":
-        return "Waiting for User Interaction"
+        print(c.red+"\nWaiting for User Interaction ! ! !\n")
     
     elif msg == "mic":
-        return "Waiting to receive victim Voice"
+        print(c.red+"\nWaiting to receive victim Voice ! ! ! \n")
 
     elif msg == "webcam":
-        return "Waiting to receive victim Picture"
+        print(c.red+"\nWaiting to receive victim Picture ! ! !\n")
     
