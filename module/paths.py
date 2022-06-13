@@ -1,3 +1,9 @@
+
+def normal_temp(path):
+    if path == "info":
+        return "normal_data/info.json"
+
+
 def weather_temp(path):
     if path == "info":
         return "weather/info.json"
@@ -9,9 +15,13 @@ def weather_temp(path):
         return "weather/error.txt"
 
 
-def normal_temp(path):
+def nearyou_temp(path):
     if path == "info":
-        return "normal_data/info.json"
+        return "nearyou/info.json"
+
+    elif path == "result":
+        return "nearyou/result.json"
+
 
 
 
@@ -31,6 +41,4 @@ def microphone_temp(path):
     
     elif path == "microphone-result":
         return "microphone/result.json"
-
-
 
