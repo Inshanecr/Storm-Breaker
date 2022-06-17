@@ -58,10 +58,10 @@
 
 
 ```bash
-$ git clone https://github.com/Inshanecr/Storm-Breaker
-$ cd Storm-Breaker
-$ sudo python3 -m pip install -r requirements.txt
-$ sudo python3 st.py
+git clone https://github.com/Inshanecr/Storm-Breaker
+cd Storm-Breaker
+sudo python3 -m pip install -r requirements.txt
+sudo python3 st.py
 ```
 
 ## My Telegram
