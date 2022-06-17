@@ -6,7 +6,7 @@ from time import sleep
 #GET RANDOM PORT
 randPort = random.choice(range(1000,10000))
 
-#function for return to back MainMenu
+#function for return to MainMenu
 def continue_proc(con_path=' ',con_status=True):
    if con_status == True:
       with open(f"template/{con_path}","w") as clear_file:
