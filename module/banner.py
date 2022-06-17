@@ -1,36 +1,36 @@
-import os
+import os,subprocess
 from module.colors import c
 from time import sleep
-import subprocess
 
+#Neofetch
 def banner():
     os.system("clear")
     subprocess.Popen('neofetch')
     sleep(1)
 
+#Function for Storm Terminal
 def terminal_logo(msg):
         print(c.red+" ┌─["+c.lcyan+"STORM-BREAKER"+c.re+"/"+c.lgreen+msg+c.red+"""]
- └──╼ """+c.re+"$ ")
+ └──╼ """+c.re+"$ "+c.pink)
 
+#Function For Main Menu
 def show_menu():
     sleep(0.1)
     print(c.red+"\n ["+c.re+"*"+c.red+"]"+c.cyan+" Choose one of the options below \n")
     sleep(0.1)
-    print(c.red+" [1]"+c.blue+" Get Normal Data "+c.yellow+"[Without Any Permissions]\n")
+    print(c.red+" [1]"+c.blue+" Get Location "+c.green+"[Advance Theme]\n")
     sleep(0.1)
-    print(c.red+" [2]"+c.blue+" Get Location "+c.green+"[Advance Theme]\n")
+    print(c.red+" [2]"+c.blue+" Get Location "+c.purple+"[Smart Phone]\n")
     sleep(0.1)
-    print(c.red+" [3]"+c.blue+" Get Location "+c.purple+"[Smart Phone]\n")
+    print(c.red+" [3]"+c.blue+" Access Webcam\n") 
     sleep(0.1)
-    print(c.red+" [4]"+c.blue+" Access Webcam\n") 
+    print(c.red+" [4]"+c.blue+" Access Microphone \n")
     sleep(0.1)
-    print(c.red+" [5]"+c.blue+" Access Microphone \n")
-    sleep(0.1)
-    print(c.red+" [6]"+c.blue+" Developer :)\n")
+    print(c.red+" [5]"+c.blue+" Developer :)\n")
     sleep(0.01)
-    print(c.red+" [7]"+c.blue+" Exit . . .\n")
+    print(c.red+" [6]"+c.blue+" Exit . . .\n")
 
-
+#Function For Developer option list
 def Devloper_information():
     os.system("clear")     
     ban= (f"""
