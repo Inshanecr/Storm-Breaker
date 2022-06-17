@@ -1,8 +1,3 @@
-def normal_temp(path):
-    if path == "info":
-        return "normal_data/info.json"
-
-
 def weather_temp(path):
     if path == "info":
         return "weather/info.json"
