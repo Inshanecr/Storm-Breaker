@@ -24,8 +24,7 @@
 
 ### Features:
 
-- Get Device Information Without Any Permissions
-- Access Location [SMARTPHONES]
+- Access Location [AdvanceTheme]
 - Access Webcam
 - Access Microphone
 
