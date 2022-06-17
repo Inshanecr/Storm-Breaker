@@ -58,15 +58,15 @@
 
 
 ```bash
-git clone https://github.com/Inshanecr/Storm-Breaker
-cd Storm-Breaker
-sudo python3 -m pip install -r requirements.txt
-sudo python3 st.py
+$ git clone https://github.com/Inshanecr/Storm-Breaker
+$ cd Storm-Breaker
+$ sudo python3 -m pip install -r requirements.txt
+$ sudo python3 st.py
 ```
 
 ## My Telegram
 [![GNU GPLv3 Image](https://telegram.org/img/t_logo.png)](http://t.me/LooQaat)
 
-#### Don't Forgot to share with Your Friends 
-### The new Update get will soon for Windows stay updated
+#### Don't Forgot to share with Your Friends. 
+### The new Update get will soon for Windows.
 #### Thank you ! ! ! 
