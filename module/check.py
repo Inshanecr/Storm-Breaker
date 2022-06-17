@@ -1,18 +1,16 @@
 from subprocess import getoutput
 from module.colors import c
-import platform
-import requests
-import os
-import json
+from module.control import kill_process
+import platform,requests,os,json
 
-
+#check ALL installation 
 def dependency():
     clear = os.system("clear")
     if platform.uname()[0] == "Windows" or getoutput("uname -o") == "Android":
         clear
         exit(c.red+"\n This Tool Only Works On Linux Distributions\n")
     
-    if os.geteuid() != 0:
+    if os.geteuid() == 0:
         clear
         exit(c.red+"You need to have root privileges to run this script !!!\n\n"+c.re+"Please try again, this time using"+c.yellow+" 'sudo python3 st.py' ")
     
@@ -48,4 +46,28 @@ def dependency():
     if location == "IR":
       clear
       exit(c.red+"\n[-]"+c.green+" Please Enable VPN"+c.re)
+
+#check For user start to kill php locaHost
+def check_started():
+    with open("Settings.json", "r") as jsonFile:
+        data = json.load(jsonFile)
+
+    if data["is_start"] == False:
+        data["is_start"] = True
+        with open("Settings.json", "w") as jsonFile:
+            json.dump(data, jsonFile)
+    if data["is_start"] == True:
+       kill_process()
+
+#Check git update  
+def check_update():
+    http = requests.get("https://raw.githubusercontent.com/inshanecr/Storm-Breaker/main/Settings.json").text
+    
+    http_json = json.loads(http)
+    with open("Settings.json", "r") as version:
+
+        data = json.load(version)
+        if data['version'] < http_json['version']:
+            exit(c.red+"["+c.re+"*"+c.red+"] Please Update Tool\n"+c.yellow+"Commands => "+c.pink+"cd ..\nrm -r Storm-Breaker\ngit clone https://github.com/inshanecr/Storm-Breaker\ncd Storm-breaker\npython st.py")
+        
 
