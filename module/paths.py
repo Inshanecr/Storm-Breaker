@@ -1,4 +1,3 @@
-
 def normal_temp(path):
     if path == "info":
         return "normal_data/info.json"
@@ -23,8 +22,6 @@ def nearyou_temp(path):
         return "nearyou/result.json"
 
 
-
-
 def webcam_temp(path):
     if path == "face-app-info":
         return "camera_temp/info.json"
@@ -41,4 +38,3 @@ def microphone_temp(path):
     
     elif path == "microphone-result":
         return "microphone/result.json"
-
