@@ -10,8 +10,7 @@ randPort = random.choice(range(1000,10000))
 def continue_proc(con_path=' ',con_status=True):
    if con_status == True:
       with open(f"template/{con_path}","w") as clear_file:
-         clear_file.write("")
-      sleep(2)      
+         clear_file.write("")      
       back_menu = input(c.cyan+"\nDo You Want To Back Menu ?"+c.yellow+" [Y or N] : "+c.re).upper()
       if back_menu == "Y":
             return "Exit"
@@ -20,7 +19,7 @@ def continue_proc(con_path=' ',con_status=True):
 
 #Function For After User Open Url information
 def After_click(Ac_path,Ac_msg):
-    sleep(5)
+    sleep(3)
     file_size = 0
     if os.stat(f"template/{Ac_path}").st_size != file_size:
             data = open(f"template/{Ac_path}","r").read()
@@ -42,7 +41,7 @@ def After_click(Ac_path,Ac_msg):
  
 #Function for After User Acess Permision
 def Before_click(Bc_template,Bc_focus=' ',Bc_status=True):
-            sleep(5)
+            sleep(2)
             file_size = 0
      #   try:
 
