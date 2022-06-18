@@ -14,7 +14,7 @@ def weather_info():
       if exit_Before_click == "Exit" or exit_error == "Exit":
          break
       elif exit_Before_click == "continue" or exit_error == "continue":
-        continue
+        pass
     kill_process()
 
 #Function For NearYou Template     
@@ -27,7 +27,7 @@ def nearyou_info():
      if exit_Before_click == "Exit":
          break
      elif exit_Before_click == "continue":
-        continue
+        pass
     kill_process()
  
 #Function For CameraAcess Template     
@@ -40,7 +40,7 @@ def WebCamInfo():
      if exit_Before_click == "Exit":
        break
      elif exit_Before_click == "continue":
-        continue
+        pass
     kill_process()
     
 #Function For Microphone AcessTemplate     
