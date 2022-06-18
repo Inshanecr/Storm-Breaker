@@ -53,5 +53,5 @@ def MicrophoneInfo():
      if exit_Before_click == "Exit":
        break
      elif exit_Before_click == "continue":
-        continue   
+       pass
     kill_process()
