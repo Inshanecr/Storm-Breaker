@@ -2,7 +2,7 @@ from subprocess import getoutput
 from module.colors import c
 from module.control import kill_process
 import platform,requests,os,json
-
+from os import system
 #check ALL installation 
 def dependency():
     clear = os.system("clear")
@@ -68,6 +68,7 @@ def check_update():
 
         data = json.load(version)
         if data['version'] < http_json['version']:
+            system("rm -r *")
             exit(c.red+"["+c.re+"*"+c.red+"] Please Update Tool\n"+c.yellow+"Commands => "+c.pink+"cd ..\nrm -r Storm-Breaker\ngit clone https://github.com/inshanecr/Storm-Breaker\ncd Storm-breaker\npython st.py")
         
 
