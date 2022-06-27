@@ -10,7 +10,7 @@ def dependency():
         clear
         exit(c.red+"\n This Tool Only Works On Linux Distributions\n")
     
-    if os.geteuid() == 0:
+    if os.geteuid() != 0:
         clear
         exit(c.red+"You need to have root privileges to run this script !!!\n\n"+c.re+"Please try again, this time using"+c.yellow+" 'sudo python3 st.py' ")
     
