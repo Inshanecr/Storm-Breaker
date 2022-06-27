@@ -27,7 +27,7 @@ def dependency():
     check_ssh= getoutput("ssh")
     if "not found" in check_ssh:
         clear
-        exit(c.red+"please install openssl \n command > sudo apt install openssl")
+        exit(c.red+"please install openssl \n command > sudo apt install openssh")
 
     try:
         import requests,psutil
