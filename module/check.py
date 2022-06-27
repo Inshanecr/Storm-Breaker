@@ -30,7 +30,7 @@ def dependency():
         exit(c.red+"please install openssl \n command > sudo apt install openssh")
 
     try:
-        import requests,psutil
+        import requests
     except ImportError:
         exit(c.red+"please install library \n command > python3 -m pip install -r requirements.txt")
 
