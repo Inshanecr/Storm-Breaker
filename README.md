@@ -53,8 +53,8 @@
 
 - Kali Linux 2022
 - macOS Big Sur / M1 
-- alpine 
-- parrot os
+- Alpine Linux 
+- Parrot-os Linux 
 
 ### Installation On Kali Linux
 
